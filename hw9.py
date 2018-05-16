@@ -42,6 +42,8 @@ if __name__ == '__main__':
         print("Cards played:", cards_played)
 
         cards_you_can_play = get_legal_moves(cards_you_have, cards_played, heart_broken)
+        cards_you_should_play = get_good_moves(cards_you_have, cards_played, heart_broken)
         print("You can play:", ', '.join(cards_you_can_play))
+        print("You should play:", ', '.join(cards_you_should_play))
 
         print()
