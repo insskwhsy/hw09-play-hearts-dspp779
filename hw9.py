@@ -19,9 +19,7 @@ def get_good_moves(cards_you_have, cards_played, heart_broken=False):
     return []
 
 
-def random_cards():
-    cards = init_all_cards()
-    cards.remove('♣2')
+def random_cards(cards):
     while True:
         cards_you_have = random.sample(cards, random.choice(range(1, 13)))
         cards_played = random.sample(cards, random.choice(range(4)))
@@ -36,8 +34,10 @@ def random_cards():
 
 
 if __name__ == '__main__':
+    cards = init_all_cards()
+    cards.remove('♣2')
     for _ in range(10):
-        cards_you_have, cards_played, heart_broken = random_cards()
+        cards_you_have, cards_played, heart_broken = random_cards(cards)
         print("You have:", ', '.join(cards_you_have))
         print("Cards played:", cards_played)
 
