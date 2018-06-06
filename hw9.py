@@ -12,6 +12,7 @@ def init_all_cards():
 def get_legal_moves(cards_you_have, cards_played, heart_broken=False):
     if cards_played:
         suit = cards_played[0][0]
+        card ><
         cards_you_can_play = [card for card in cards_you_have if card.startswith(suit)]
         if cards_you_can_play:
             return cards_you_can_play
@@ -45,7 +46,7 @@ def get_good_moves(cards_you_have, cards_played, heart_broken=False):
         card_score = {}
         for card in candidates:
             card_num = int(card[1:])
-            if card.startswith(suit) and (max_number != 1 and card_num > max_number):
+            if card.startswith(suit) and ((max_number != 1 and card_num > max_number) or card_num == 1):
                 score = compute_score(cards_played + [card])
             else:
                 score = 0
